@@ -1,0 +1,27 @@
+{
+    "tests":{    
+        "test_parsing": true, 
+        "test_semantic": false
+    },
+
+    "file_paths": {
+       "test_parsing_path": "./TestParsing",
+       "test_semantic_path": "./TestSemantic"
+    },
+
+    "params": {
+        "test_parsing_param": "false",
+        "test_semantic_param": "--chk_decl"
+    },
+    "paths": {
+        "path_to_makefile_and_exec": "/path/to/your/make/and/exec/files"
+    },
+    "print_map": {
+        "test_parsing": "Test Parsing:",
+        "test_semantic": "Test Semantic:"
+    },
+    "other": {
+        "clean_files": "true"
+    }
+
+}

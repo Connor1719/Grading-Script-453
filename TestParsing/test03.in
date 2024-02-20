@@ -1,0 +1,27 @@
+int x, y;
+
+int f(int x, int y) { }
+
+int g() { g(); f();}
+
+
+int a() {
+  int f;
+  int x,/* y,*/ z;
+  int a;
+  int b;
+}
+
+int p, q;
+
+int b(int u, int v) {
+  int x, y, p;
+  a( );
+}
+
+int z(int y) {
+    int b,
+    p,                  z,
+    d, f;
+    a();
+}

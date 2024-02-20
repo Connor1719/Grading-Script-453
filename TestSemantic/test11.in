@@ -1,0 +1,7 @@
+int f(int x)
+{ }
+
+int g(int f)
+{
+  f();  /* f is an int (the formal param) */
+}

@@ -1,0 +1,2 @@
+int g() { }
+int f(int f) { g(); }

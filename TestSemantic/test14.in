@@ -1,0 +1,9 @@
+int f()
+{
+    g();    /* g is undeclared at this point */ 
+}
+
+int g() 
+{
+    f();
+}
