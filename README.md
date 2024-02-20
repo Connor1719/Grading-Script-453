@@ -14,14 +14,8 @@ Outputs to stderr and in .out are not case sensitive but must match spec
 
 .in files are just the text you want to stderr.
 
-If your expected outout is to fail the file should be formatted as:
-
-- FILE#.out
-1
-error line #
-
+.out files are formatted as first line expected error second line expected out
 
 If your expected output is 0 you dont need to fill out anything for the second line
 
-Further examples of file formatting can be seen in TestParsing
-
+Examples of how to format the files can be found in TestParsing and TestSemantic
