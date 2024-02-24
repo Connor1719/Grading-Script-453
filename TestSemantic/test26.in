@@ -1,0 +1,9 @@
+int x;
+
+int l(int x, int y) {
+
+}
+
+int j() {
+    k = 10;
+}   

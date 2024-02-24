@@ -1,0 +1,9 @@
+int x;
+
+int f(int z) {
+
+}
+
+int l() {
+    f(10, x);
+}

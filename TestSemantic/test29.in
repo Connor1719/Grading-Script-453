@@ -1,0 +1,7 @@
+int x() {
+    int y;
+    while (y
+    < 
+    10)
+    ;
+}

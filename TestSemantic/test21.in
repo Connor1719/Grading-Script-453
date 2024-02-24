@@ -1,0 +1,7 @@
+int f(int y, int z, int j) {
+
+}
+
+int k() {
+    f(10, 5, 4);
+}

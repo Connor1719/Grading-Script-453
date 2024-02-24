@@ -1,1 +1,1 @@
-int g(int f) { g(); }
+int g(int f) { g(10); }

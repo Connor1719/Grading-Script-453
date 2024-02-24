@@ -1,0 +1,11 @@
+int x;
+int y;
+
+int l(int x, int y, int z) {
+
+}
+
+
+int j(int f) {
+    l(x, y, f);
+}

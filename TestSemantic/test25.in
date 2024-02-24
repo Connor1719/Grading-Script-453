@@ -1,0 +1,7 @@
+int f(int z, int y) {
+
+}
+
+int l() {
+    f(10);
+}
