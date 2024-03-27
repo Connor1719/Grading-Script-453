@@ -16,7 +16,7 @@
 
 	},
 	"paths": {
-		"path_to_makefile_and_exec": "/mnt/c/Users/Connor/Desktop/CSC453-SS24/A3-M2-CSC453-SS24"
+		"path_to_makefile_and_exec": "/path/to/your/make/and/exec/files"
 	},
 	"print_map": {
 		"test_parsing": "Test Parsing:",
