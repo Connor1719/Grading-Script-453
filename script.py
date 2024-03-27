@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import glob
 import subprocess
 
@@ -37,8 +38,11 @@ def run_tests():
 def exec_prog_comp(in_file, out_file, test):
     cla =  [f"{config['paths']['path_to_makefile_and_exec']}/compile", "/compile"]
     b = True if test == 'test_ast' else False
+    c = True if test == "test_code" else False
     if (config['params'][f'{test}_param']):
         cla.append(config['params'][f'{test}_param'])
+    if c:
+        cla.append(config['params']['test_semantic_param'])
     with open(in_file, 'rb') as inpt:
         otpt = open(out_file, 'r').read().splitlines()
         if not otpt: return
@@ -46,6 +50,9 @@ def exec_prog_comp(in_file, out_file, test):
             result = subprocess.run(cla, stdin=inpt, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         except subprocess.CalledProcessError as e:
             if e.returncode == 1:
+                if c:
+                    code_gen_err(in_file, otpt, "1", test, e.stdout.decode())
+                    return
                 if b:
                     compare_cases(in_file, otpt, "1", test, e.stdout.decode(), b)
                     return
@@ -54,13 +61,56 @@ def exec_prog_comp(in_file, out_file, test):
                 print(f"Unknown error on {test} -> {e}\n")
         else:
             if result.returncode == 0:
+                if c:
+                    code_gen(in_file, otpt, "0", test, result.stdout.decode())
+                    return
                 if b:
-                    compare_cases(in_file, otpt, "0", test, e.stdout.decode(), b)
+                    # TODO: might be useless case
+                    compare_cases(in_file, otpt, "0", test, result.stdout.decode(), b)
                     return
                 compare_cases(in_file, otpt, "0", test)
             else:
                 print(f"Unknown return code on {test}")
 
+
+def code_gen(in_file, out_file, out_code, test, stdout):
+    in_file = in_file[in_file.rfind("/")+1:]
+    file = open("testout.s", "w")
+    file = open("testout.s", "w")
+    file.write(stdout)
+    file.close()
+    cla = ["spim", "-file", "testout.s"]
+    result = subprocess.run(cla, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    os.remove("testout.s")
+    output_spim = re.sub(r"(?s)SPIM Version.*exceptions.s\n", "", result.stdout.decode(), flags=re.DOTALL)
+    output_spim_pretty = output_spim.rstrip("\n")
+    lines_split = output_spim_pretty.splitlines()
+    output_modified = [lines_split[0]] + [" " * 14 + line for line in lines_split[1:]]
+    output_spim_pretty = "\n".join(output_modified)
+    output_spim_cleaned = re.sub(r"\s+", "", output_spim)
+    output_modified = [out_file[0]] + [" " * 14 + line for line in out_file[1:]]
+    output_match_pretty = "\n".join(output_modified)
+    output_match_cleaned = re.sub(r"\s+", "", output_match_pretty)
+    if (output_match_cleaned == output_spim_cleaned):
+        print(f"{config['print_map'][test]} PASSED {in_file}\n")
+        inc_pass()
+    else:
+        print(f"{config['print_map'][test]} FAILED {in_file}")
+        print(f"    Expected: {output_match_pretty}\n")
+        print(f"      Actual: {output_spim_pretty}\n")
+    inc_total()
+
+def code_gen_err(in_file, out_file, out_code, test, stdout):
+    in_file = in_file[in_file.rfind("/")+1:]
+    output_modified = [out_file[0]] + [" " * 14 + line for line in out_file[1:]]
+    output_match_pretty = "\n".join(output_modified)
+    print(f"{config['print_map'][test]} FAILED {in_file}")
+    print(f"    Expected: {output_match_pretty}\n")
+    if (len(stdout) == 0): 
+        print(f"      Actual: Unknown error nothing to STDOUT please test further yourself. Likely semantic though.\n")
+    else: 
+        print(f"      Actual: {stdout}\n")
+    inc_total()
 
 
 def check_output(output_file):

@@ -8,14 +8,17 @@ those testcases are in file_paths
 
 Testcase naming convensions should be test#.in test#.out
 
-* FILE FORMATTING
+* FILE FORMATTING PARSING / SEMANTIC
 
-Outputs to stderr and in .out are not case sensitive but must match spec
+Outputs to stderr and .in .out are not case sensitive but must match spec
 
-.in files are just the text you want to stderr.
+If your expected output is 0 you dont need to fill out anything for the second line for Parsing / Semantic
 
-.out files are formatted as first line expected error second line expected out
+Examples of file formatting can be found in ./TestParsing ./TestSemantic
 
-If your expected output is 0 you dont need to fill out anything for the second line
+* CODE GEN
 
-Examples of how to format the files can be found in TestParsing and TestSemantic
+The code gen is quite simple just follow naming requirements and then in the .in put the c code
+and in the .out put the expected output from running the assembly. The formatting of the out
+does not matter it will match any pattern regardles of where you put spaces. Examples
+of these test cases can be found in ./TestCode to help you further make your own.
