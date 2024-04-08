@@ -1,7 +1,7 @@
 "# Grading-Script" 
 
 All setting can be changed withing config.json which should be straightforward
-For finding your path_to_makefile_and_exec run "cwd" in the folder and just copy.
+For finding your path_to_makefile_and_exec run "pwd" in the folder and just copy.
 
 boolean values can be used to enable the test and then you can set paths to where
 those testcases are in file_paths

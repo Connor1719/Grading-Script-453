@@ -1,0 +1,5 @@
+int f() {
+    while (x < y)
+    while (x > y)
+    while x > y)
+}

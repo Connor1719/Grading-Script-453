@@ -1,7 +1,7 @@
 {
 	"tests": {
-		"test_parsing": false,
-		"test_semantic": false,
+		"test_parsing": true,
+		"test_semantic": true,
 		"test_code": true
 	},
 	"file_paths": {

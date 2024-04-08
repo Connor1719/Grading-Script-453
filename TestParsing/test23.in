@@ -1,0 +1,10 @@
+int h;
+
+int x(int y, int g) {
+    x(10, 5);
+    y();
+    y(y, g);
+    fuckcall(1);
+    l(lots, fuck);
+    g(10, 10, 10, 10, 10, 10, 10);
+}   

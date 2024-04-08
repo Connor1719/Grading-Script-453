@@ -1,0 +1,6 @@
+int f() {
+    int k,y,z;
+    if (x < y)
+        f(10, 5)
+    int g;
+}

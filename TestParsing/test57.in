@@ -1,0 +1,27 @@
+/*
+ * A sample G2 program
+ */
+ 
+ int x, y;
+ int f(int x, int y) { }
+ 
+ int fuck(int z, int w) {
+     int x, y, l;
+     l = 1;
+     z = 5;
+ }
+ 
+int a() {
+    int x, y;
+    if (x > 0)
+      while (x < 10)
+	x = 0;
+    else
+      x = 1;
+    fuck(
+    x               , p,
+    y
+    );
+    return x;
+}
+ 

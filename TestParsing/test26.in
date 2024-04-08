@@ -1,0 +1,28 @@
+int x() {
+    x();
+    f();
+    if (l >= f)
+        return;
+    if (l <= f)
+        return;
+    if (l > f)
+        return;
+    if (l < f)
+        return;
+    if (l==f)
+        return;
+    if (l != f)
+        return;
+    else
+        return 10;
+    else
+    ;
+    else
+    return x;
+    else
+    return 5;
+    else
+    return;
+    else
+    ;
+}

@@ -1,0 +1,8 @@
+int f () {
+    {{{}}
+}
+int k;
+
+int j() {}
+
+/* This is missing the closing } for the func so should see int and realize out of func cant have*/

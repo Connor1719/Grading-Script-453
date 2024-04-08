@@ -1,0 +1,11 @@
+int x,z;
+
+int f(int z) {
+    /* pulls global z as the param */
+    println(z);
+}
+
+int main() {
+    x = 12345;
+    f(x);
+}

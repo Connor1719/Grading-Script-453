@@ -1,0 +1,9 @@
+int f() {
+    if (10 > 5) 
+        if (5 < 3)
+            if (x < y)
+            else
+            else
+    {;}
+    return 10;
+}

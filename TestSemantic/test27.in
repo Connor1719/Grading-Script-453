@@ -1,6 +1,5 @@
 int x() {
-    while (x 
-    < 
+    while (x < 
     10)
     ;
 }
