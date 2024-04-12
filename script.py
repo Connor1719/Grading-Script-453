@@ -58,7 +58,8 @@ def exec_prog_comp(in_file, out_file, test):
                     return
                 compare_cases(in_file, otpt, "1", test, e.stderr.decode())
             else:
-                print(f"Unknown error on {test} -> {e}\n")
+                bad_error(otpt, e, test, in_file)
+                # print(f"Unknown error on 1 {test} -> {e}\n")
         else:
             if result.returncode == 0:
                 if c:
@@ -70,7 +71,20 @@ def exec_prog_comp(in_file, out_file, test):
                     return
                 compare_cases(in_file, otpt, "0", test)
             else:
-                print(f"Unknown return code on {test}")
+                bad_error(otpt, e, test, in_file)
+                # print(f"Unknown return code on 2 {test}")
+
+
+def bad_error(out_file, err, test, in_file):
+    if out_file[0] == "0":
+        print(f"{config['print_map'][test]} FAILED {in_file}")
+        print("    Expected: Exit status 0")
+        print(f"    Actual: (Likely Seg Fault) -> {err}\n")
+    else:
+        print(f"{config['print_map'][test]} FAILED {in_file}")
+        print(f"    Expected: Exit status 1 -> {first_three(out_file[1])}")
+        print(f"    Actual: (Likely Seg Fault) -> {err}\n")
+    inc_total()
 
 
 def code_gen(in_file, out_file, out_code, test, stdout):
@@ -99,6 +113,7 @@ def code_gen(in_file, out_file, out_code, test, stdout):
         print(f"    Expected: {output_match_pretty}\n")
         print(f"      Actual: {output_spim_pretty}\n")
     inc_total()
+
 
 def code_gen_err(in_file, out_file, out_code, test, stdout):
     in_file = in_file[in_file.rfind("/")+1:]
