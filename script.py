@@ -20,17 +20,18 @@ def inc_total():
 
 def run_tests():
     for test in config['tests']:
-        if (config['tests'][test]):
+        if config['tests'][test]:
             tests_path = config['file_paths'][f"{test}_path"]
             if os.path.exists(tests_path):
                 input_files = glob.glob(os.path.join(tests_path, "test*.in"))
+                input_files.sort(key=lambda f: int(re.findall(r'\d+', os.path.basename(f))[0]))
                 for file in input_files:
                     out_file = f"{os.path.splitext(file)[0]}.out"
                     if os.path.exists(out_file):
                         exec_prog_comp(file, out_file, test)
                     else:
                         print(f"Could not found corresponding output file for {file}\n")
-            else: 
+            else:
                 print(f"Could not find folder {tests_path}")
                 return
 
