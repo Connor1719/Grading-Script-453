@@ -1,0 +1,6 @@
+/* undeclared variable in return statement */
+
+int main() {
+    int x;
+    return -y;
+}

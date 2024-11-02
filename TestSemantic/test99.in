@@ -1,0 +1,17 @@
+/* return statements with nested function calls */
+
+int f(int x) {
+    x = 0;
+}
+
+int g(int x, int y) {
+    x = y;
+}
+
+int main() {
+    int x, y;
+    return f(f(0));
+    return g(f(0),f(1));
+    return g(0,g(1,f(2)));
+    return f(g(f(x), f(y)));
+}

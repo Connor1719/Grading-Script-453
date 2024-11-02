@@ -1,0 +1,18 @@
+/* return statements with function calls */
+
+int x;
+
+int f() {
+    x = 0;
+}
+
+int g(int x, int y, int z) {
+    x = 0;
+}
+
+int main() {
+    int y;
+    return f();
+    return g(0,1,2);
+    return g(x,0,y);
+}

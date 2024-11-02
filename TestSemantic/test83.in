@@ -1,0 +1,12 @@
+/* assignments involving expressions with multiple arithmetic operators
+   where each expression has only one kind of operator. */
+
+int main() {
+    int x, y, z, w;
+
+    x = x + y + z + w;
+    x = x - y - z - w;
+    x = x * y * z * w;
+    x = x / y / z / w;
+    x = ---x;
+}

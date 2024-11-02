@@ -1,0 +1,8 @@
+int g() {
+    int x;
+    x = 5;
+    if (x > 10 && 
+    main() < x) {
+        return;
+    }
+}

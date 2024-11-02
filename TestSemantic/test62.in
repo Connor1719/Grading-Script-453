@@ -1,0 +1,6 @@
+/* undeclared function name in expression */
+
+int main() {
+    int x;
+    x = f(0,1);    /* << f is undeclared */
+}

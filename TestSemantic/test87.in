@@ -1,0 +1,23 @@
+/* assignments involving expressions with nested function calls and operators */
+
+int f() {
+}
+
+int g(int x) {
+    x = 0;
+}
+
+int h(int x, int y, int z, int w) {
+    x = 1;
+    y = 2;
+    z = 3;
+    w = 4;
+}
+
+int main() {
+    int x;
+    
+    x = g(g(f()));
+    x = g(g(g(0)));
+    x = h(g(0), f() * g(0), - g(g(0)) * (g(x) + f())/h(0,1,2,3), 0);
+}

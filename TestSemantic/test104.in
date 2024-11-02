@@ -1,0 +1,29 @@
+/* boolean expressions involving && and || operators and function calls */
+
+int f(int x) {
+    x = 0;
+}
+
+int g(int x, int y) {
+    x = y;
+}
+
+int h(int x, int y, int z) {
+    x = 0;
+}
+
+int main() {
+    int x, y, z, u, v;
+    
+    if ( f(0) > 0) x = 1;
+    if ( g(x,y) < g(u,v) && h(0,1,2) != 0 ) x = 1;
+    if ( g(x,y) == g(u,v) && h(x, y, z) != 0 || f(x) == 17 ) x = 1;
+    if ( g(0,y) != g(u,v) && h(x,0,y) != 0 && h(1,x,2) >= 17 ) x = 1;
+    if ( f(y) <= g(u,v) || h(x,y,12) == 0 || f(y) >= 17) x = 1;
+
+    while ( f(0) > 0) x = 1;
+    while ( g(x,y) < g(u,v) && f(x) != 0 ) x = 1;
+    while ( g(x,y) <= g(u,v) && f(x) == 0 || h(0,1,2) == 17 ) x = 1;
+    while ( f(g(x,y)) > g(u,v) && f(x) != 0 && g(0,1) == 17 ) x = 1;
+    while ( f(x) <= g(u,v) || h(x,y,0) == 0 || f(0) >= 17) x = 1;
+}

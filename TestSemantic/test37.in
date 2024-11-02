@@ -1,0 +1,13 @@
+int main(int a) {
+    return;
+}
+
+int g() {
+    int x;
+    x = 5;
+    if (x > 10 && 
+    main(10) 
+    < main(10, 5)) {
+        return;
+    }
+}

@@ -1,0 +1,18 @@
+/* while statements with expressions containing nested function calls
+   together with operators */
+
+int f(int x) {
+    x = 0;
+}
+
+int g(int x, int y) {
+    x = y;
+}
+
+int main() {
+    int x, y, z, w;
+    while (f(f(x+1)) > 0) x = 1;
+    while (f(f(x) + g(x,y) * f(z / w)) > g(x - w / 2 * z, 0)) x = 1;
+    while (f(g(x*2,y/2) + f(y)) * f(g(z / w, 1)) > g((x - w) / 2, 2) * z) x = 1;
+    while (f(f(x + y) * z) > g(f(x - w) / 2, g(f(0),f(1)) * z)) x = 1;
+}

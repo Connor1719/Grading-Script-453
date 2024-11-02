@@ -1,0 +1,20 @@
+/* if statements with expressions containing function calls */
+
+int f(int x, int y) {
+    x = y;
+}
+
+int g(int x, int y, int u, int v) {
+    x = y;
+}
+
+
+
+int main() {
+    int x, y, u, v;
+    if (f(0,1) > 0) x = 1;
+    if (f(0,1) == g(1,2,3,4)) x = 1;
+    if (f(x,y) != 0) x = 1;
+    if (f(x,1) < g(0,u,v,y)) x = 1;
+    if (g(0,y,1,x) >= g(u,2,v,3)) x = 1;
+}

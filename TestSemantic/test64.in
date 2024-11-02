@@ -1,0 +1,11 @@
+/* undeclared variable in function argument list */
+
+int f(int x, int y, int z) {
+    int w;
+    w = x*y+z;
+}
+
+int main() {
+    int x;
+    x = f(0, u+v, 1);    /* << u, v undeclared */
+}

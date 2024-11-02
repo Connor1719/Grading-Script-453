@@ -1,0 +1,6 @@
+/* undeclared variable in IF statement */
+
+int main() {
+    int x;
+    if (2*y/z > 0) x = 1;
+}

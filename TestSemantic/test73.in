@@ -1,0 +1,6 @@
+/* undeclared variable in WHILE statement */
+
+int main() {
+    int x;
+    while (-y > 0) x = 1;
+}

@@ -1,0 +1,9 @@
+int x, g,h,aaa;
+int modify() {
+    x = 5;
+    return x;
+}
+int main() {
+    g = modify();
+    return x + g; 
+}

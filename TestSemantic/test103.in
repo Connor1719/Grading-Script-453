@@ -1,0 +1,9 @@
+/* boolean expressions involving mixed && and || operators */
+
+int x, y, z, w;
+
+int main() {
+    if ( x > 0 && y < 20 || z <= w ) x = 1;
+    if (x > 0 && y < 20 || z <= w ) x = 1;
+    if (x > 0 && y < 20 && y >= 5 || z <= w && w > 0) x = 1;
+}

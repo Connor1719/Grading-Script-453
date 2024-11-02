@@ -1,0 +1,11 @@
+/* function call to a non-function ID */
+
+int f(int x, int y, int z) {
+    int w;
+    w = x*y+z;
+}
+
+int main() {
+    int f, g, h;
+    f(0, 1, 2);    /* << f is of the wrong type */
+}

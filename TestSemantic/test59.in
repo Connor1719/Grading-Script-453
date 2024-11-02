@@ -1,0 +1,9 @@
+/* incorrect type on LHS of assignment */
+
+int myfun(int x) {
+    x = 0;
+}
+
+int main() {
+    myfun = 1;
+}

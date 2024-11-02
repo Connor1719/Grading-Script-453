@@ -1,0 +1,15 @@
+/* if statements with expressions containing nested function calls */
+
+int f(int x) {
+    x = 0;
+}
+
+int g(int x, int y) {
+    x = y;
+}
+
+int main() {
+    int x, y;
+    if (f(f(x)) > 0) x = 1;
+    if (g(f(x), g(x, y)) > g(0,g(x,f(y)))) x = 1;
+}

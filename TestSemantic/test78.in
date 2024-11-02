@@ -1,0 +1,9 @@
+/* incorrect no. of arguments in function call */
+
+int f(int x, int y, int z, int u, int v) {
+    return -x + y+z*u/v;
+}
+
+int main() {
+    f(0, 1, 2, 3);    /* << need 5 arguments, supplying 4 */
+}

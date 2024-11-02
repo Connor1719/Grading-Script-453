@@ -1,0 +1,6 @@
+int x;
+
+int testFunc() {
+    int x;
+    x = x + 1; 
+}
